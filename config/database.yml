@@ -1,9 +1,14 @@
-development: &default
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: hound_development
+  host: db
   pool: <%= ENV.fetch("DB_POOL", 5) %>
   reaping_frequency: <%= ENV.fetch("DB_REAPING_FREQUENCY", 10) %>
+  username: postgres
+
+development:
+  <<: *default
+  database: hound_development
 
 test:
   <<: *default
